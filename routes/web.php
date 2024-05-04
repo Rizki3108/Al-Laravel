@@ -1,9 +1,13 @@
 <?php
 
 use App\Models\Barang;
+use App\Models\Merek;
+use App\Models\Produk;
 use App\Models\Siswa;
+use App\Models\Telepon;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
+use App\Models\Pengguna;
 
 
 /*
@@ -57,4 +61,24 @@ Route::get('/testmodelsiswa', function () {
 
 Route::get('/about', function () {
     return view('about');
+});
+
+Route::get('/pengguna', function () {
+    $data = Pengguna::all();
+    return view('tampil_pengguna', compact('data'));
+});
+
+Route::get('/telepon', function () {
+    $data = Telepon::all();
+    return view('tampil_telepon', compact('data'));
+});
+
+Route::get('/merek', function () {
+    $data = Merek::all();
+    return view('tampil_merek', compact('data'));
+});
+
+Route::get('/produk', function () {
+    $data = Produk::all();
+    return view('tampil_produk', compact('data'));
 });
