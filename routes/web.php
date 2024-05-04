@@ -1,10 +1,13 @@
 <?php
 
 use App\Models\Barang;
+use App\Models\Barang2;
 use App\Models\Merek;
+use App\Models\Pembeli;
 use App\Models\Produk;
 use App\Models\Siswa;
 use App\Models\Telepon;
+use App\Models\Transaksi;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\Pengguna;
@@ -81,4 +84,19 @@ Route::get('/merek', function () {
 Route::get('/produk', function () {
     $data = Produk::all();
     return view('tampil_produk', compact('data'));
+});
+
+Route::get('/pembeli', function () {
+    $data = Pembeli::all();
+    return view('tampil_pembeli', compact('data'));
+});
+
+Route::get('/barang2', function () {
+    $data = Barang2::all();
+    return view('tampil_barang2', compact('data'));
+});
+
+Route::get('/transaksi', function () {
+    $data = Transaksi::all();
+    return view('tampil_transaksi', compact('data'));
 });
