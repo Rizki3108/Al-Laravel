@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\MerekController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProdukController;
 use App\Models\Barang;
 use App\Models\Barang2;
 use App\Models\Merek;
@@ -100,3 +103,15 @@ Route::get('/transaksi', function () {
     $data = Transaksi::all();
     return view('tampil_transaksi', compact('data'));
 });
+
+//controller
+Route::get('/listproduk', [ProdukController::class, 'menampilkan']);
+Route::get('/listproduk/{id}', [ProdukController::class, 'show']);
+
+//controller
+Route::get('/post', [PostController::class, 'menampilkan']);
+Route::get('/post/{id}', [PostController::class, 'show']);
+
+//controller
+Route::get('/merek', [MerekController::class, 'menampilkan']);
+Route::get('/merek/{id}', [MerekController::class, 'show']);
