@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class MerekController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function menampilkan() {
 
         $merek = Merek::all();
