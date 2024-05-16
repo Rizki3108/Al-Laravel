@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Brand Data') }}</div>
-                
-                <div class="card-body">
-                    <a href="{{ route('brand.create') }}" class="btn btn-primary" >Add Data</a>
-                    <table class="table">
-                        <thead>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ __('Brand Data') }}</div>
+
+                    <div class="card-body">
+                        <a href="{{ route('brand.create') }}" class="btn btn-primary">Add Data</a>
+                        <table class="table">
+                            <thead>
                                 <tr>
                                     <th scope="col">NO</th>
                                     <th scope="col">Brand Name</th>
@@ -21,16 +21,20 @@
                                 @php
                                     $no = 1;
                                 @endphp
-                                @foreach ($brand as $data) 
-                                <tr>
-                                    <th scope="row">{{$no++}}</th>
-                                    <td>{{$data->name_brand}}</td>
-                                    <td>
-                                        <a href="" class="btn btn-success">Edit</a>
-                                        <a href="{{ route('brand.show', $data->id) }}" class="btn btn-warning">Show</a>
-                                        <a href="" class="btn btn-danger">Delete</a>
-                                    </td>
-                                </tr>
+                                @foreach ($brand as $data)
+                                    <tr>
+                                        <th scope="row">{{ $no++ }}</th>
+                                        <td>{{ $data->name_brand }}</td>
+                                        <form action="{{ route('brand.destroy', $data->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <td>
+                                                <a href="{{ route('brand.edit', $data->id) }}"class="btn btn-success">Edit</a>
+                                                <a href="{{ route('brand.show', $data->id) }}"class="btn btn-warning">Show</a>
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </td>
+                                        </form>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>

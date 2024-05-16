@@ -14,6 +14,7 @@
                                 <input type="text" class="form-control" name="name_brand">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
+                            <a href="{{ url('brand') }}" class="btn btn-danger">Back</a>
                         </form>
                     </div>
                 </div>

@@ -121,3 +121,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 use App\Http\Controllers\BrandController;
 Route::resource('brand', BrandController::class);
+
+use App\Http\Controllers\ProductController;
+Route::resource('product', ProductController::class);
